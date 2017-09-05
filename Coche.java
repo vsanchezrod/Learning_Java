@@ -54,7 +54,7 @@ public class Coche {
 	// GETTER
 	public String dimeAsientos() {
 		// Aqui no se pone el this porque no hay lugar a error. No se le pasa argumento
-		if(asientosCuero == true) {
+		if(asientosCuero) {
 			return "El coche tiene asientos de cuero";
 		} else {
 			return "El coche tiene asientos de serie";
@@ -73,7 +73,7 @@ public class Coche {
 	
 	// GETTER
 	public String dimeClimatizador() {
-		if(climatizador == true) {
+		if(climatizador) {
 			return "El coche incorpora climatizador";
 		} else {
 			return "El coche lleva aire acondicionado";
@@ -85,10 +85,10 @@ public class Coche {
 		// Declaramos e iniciamos una variable - solo accesible desde el método
 		int pesoCarroceria = 500;
 		pesoTotal = pesoPlataforma + pesoCarroceria;
-		if(asientosCuero == true) {
+		if(asientosCuero) {
 			pesoTotal += 50;
 		}
-		if(climatizador == true) {
+		if(climatizador) {
 			pesoTotal += 20;
 		}
 		return "El peso del coche es " + pesoTotal;
