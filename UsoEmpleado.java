@@ -7,19 +7,25 @@ import java.util.*; // Para poder utilizar el DATE. Mirar en la API de JAVA
 public class UsoEmpleado {
 
 	public static void main(String[] args) {
-			
-		// Instanciamos la clase con los argumentos necesarios del constructor
-		Empleado empleado1 = new Empleado("Virginia Sánchez", 45000, 2000, 12, 1);
-		Empleado empleado2 = new Empleado("Paquito Redondo", 50000, 1995, 10, 17);
-		Empleado empleado3 = new Empleado("Pedro Casas", 65000, 1986, 2, 15);
 		
-		empleado1.subeSueldo(5);
-		empleado2.subeSueldo(5);
-		empleado3.subeSueldo(5);
+		Empleado[] misEmpleados = new Empleado[3];
 		
-		System.out.println("Nombre: " + empleado1.dimeNombre() + " Sueldo: " + empleado1.dimeSueldo() + " Fecha de alta: " + empleado1.dimeFecha()); 
-		System.out.println("Nombre: " + empleado2.dimeNombre() + " Sueldo: " + empleado2.dimeSueldo() + " Fecha de alta: " + empleado2.dimeFecha());
-		System.out.println("Nombre: " + empleado3.dimeNombre() + " Sueldo: " + empleado3.dimeSueldo() + " Fecha de alta: " + empleado3.dimeFecha());
+		misEmpleados[0] = new Empleado("Virginia Sánchez", 45000, 2000, 12, 1);
+		misEmpleados[1] = new Empleado("Paquito Redondo", 50000, 1995, 10, 17);
+		misEmpleados[2] = new Empleado("Pedro Casas", 65000, 1986, 2, 15);
+		
+		// BUCLE FOR tradicional
+		/*for(int i = 0; i < misEmpleados.length; i++) {
+			misEmpleados[i].subeSueldo(5);
+			System.out.println("Nombre: " + misEmpleados[i].dimeNombre() + " Sueldo: " + misEmpleados[i].dimeSueldo() + " Fecha de alta: " + misEmpleados[i].dimeFecha()); 
+		}*/
+		
+		// BUCLE FOR mejorado
+		for(Empleado e: misEmpleados) {
+			e.subeSueldo(5);
+			System.out.println("Nombre: " + e.dimeNombre() + " Sueldo: " + e.dimeSueldo() + " Fecha de alta: " + e.dimeFecha());
+		}
+				
 	}
 
 }
