@@ -8,11 +8,12 @@ public class UsoEmpleado {
 
 	public static void main(String[] args) {
 		
-		Empleado[] misEmpleados = new Empleado[3];
+		Empleado[] misEmpleados = new Empleado[4];
 		
 		misEmpleados[0] = new Empleado("Virginia Sánchez", 45000, 2000, 12, 1);
 		misEmpleados[1] = new Empleado("Paquito Redondo", 50000, 1995, 10, 17);
 		misEmpleados[2] = new Empleado("Pedro Casas", 65000, 1986, 2, 15);
+		misEmpleados[3] = new Empleado("Mario Rodríguez");
 		
 		// BUCLE FOR tradicional
 		/*for(int i = 0; i < misEmpleados.length; i++) {
@@ -48,7 +49,14 @@ class Empleado{
 		// Usamos un método dentro de la clase GregorianCalendar para obtener la fecha
 		altaContrato = calendario.getTime();
 		
+	}
+	
+	public Empleado(String nom) {
 		
+		// Datos por defecto para aquellos trabajadores q solo conocemos el nombre.
+		// El this en este caso llama al otro constructor y le pasa los parámetros de nombre y los de por defecto.
+		this(nom, 30000, 2000, 01, 01);
+
 	}
 	
 	// METODO GETTER
