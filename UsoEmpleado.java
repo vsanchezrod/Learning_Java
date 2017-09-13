@@ -48,7 +48,8 @@ class Empleado{
 		
 		// Usamos un método dentro de la clase GregorianCalendar para obtener la fecha
 		altaContrato = calendario.getTime();
-		
+		++idSiguiente;
+		id = idSiguiente;
 	}
 	
 	public Empleado(String nom) {
@@ -61,7 +62,7 @@ class Empleado{
 	
 	// METODO GETTER
 	public String dimeNombre() {
-		return "El nombre es " + nombre;
+		return nombre + " Id: " + id;
 	}
 	
 	// GETTER
@@ -84,7 +85,34 @@ class Empleado{
 	private String nombre;
 	private double sueldo;
 	private Date altaContrato;
+	private static int idSiguiente;
+	private int id;
 	
 	// Da igual donde definamos las variables. 
+}
+
+class Jefe extends Empleado{
+	
+	private double incentivo;
+	
+	// Si no añadimos constructor, va a coger por defecto el de la clase PADRE (el q no recibe parametro alguno) - public Empleado(){
+	// En este caso no hay ningun constructor sin parámetros por lo que nos da error.
+	public Jefe(String nom, double suel, int year, int month, int day) {
+		
+		super(nom, suel, year, month, day);
+		
+	}
+	public void estableceIncentivo(double b) {
+		
+		incentivo = b;
+		
+	}
+	
+	// Machamos el método de dimeSueldo de la clase Empleado, para la clase Jefe
+	public double dimeSueldo() {
+		double sueldoJefe = super.dimeSueldo();
+		return sueldoJefe + incentivo;
+	}
+	
 }
 
