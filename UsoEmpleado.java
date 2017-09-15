@@ -8,22 +8,31 @@ public class UsoEmpleado {
 
 	public static void main(String[] args) {
 		
-		Empleado[] misEmpleados = new Empleado[4];
+		Jefe jefeRRHH = new Jefe ("Marta López", 55000, 2006, 5, 28);
+		jefeRRHH.estableceIncentivo(2570);
+		
+		Empleado[] misEmpleados = new Empleado[6];
 		
 		misEmpleados[0] = new Empleado("Virginia Sánchez", 45000, 2000, 12, 1);
 		misEmpleados[1] = new Empleado("Paquito Redondo", 50000, 1995, 10, 17);
 		misEmpleados[2] = new Empleado("Pedro Casas", 65000, 1986, 2, 15);
 		misEmpleados[3] = new Empleado("Mario Rodríguez");
+		// POLIMORFISMO
+		misEmpleados[4] = jefeRRHH;
+		misEmpleados[5] = new Jefe ("Pepe Redondo", 75000, 1990, 4, 23);
 		
-		// BUCLE FOR tradicional
-		/*for(int i = 0; i < misEmpleados.length; i++) {
-			misEmpleados[i].subeSueldo(5);
-			System.out.println("Nombre: " + misEmpleados[i].dimeNombre() + " Sueldo: " + misEmpleados[i].dimeSueldo() + " Fecha de alta: " + misEmpleados[i].dimeFecha()); 
-		}*/
+		Jefe jefaFinanzas = (Jefe) misEmpleados[5];
 		
-		// BUCLE FOR mejorado
+		jefaFinanzas.estableceIncentivo(5000);
+		
+		
+		// BUCLE FOR mejorado. Variable e de objeto Empleado. 
 		for(Empleado e: misEmpleados) {
 			e.subeSueldo(5);
+		}
+		
+		// La e Cuando sea un empleado usará el metodo de empleado y cuando sea un jefe será el de jefe. ENLAZADO DINAMICO
+		for(Empleado e: misEmpleados) {
 			System.out.println("Nombre: " + e.dimeNombre() + " Sueldo: " + e.dimeSueldo() + " Fecha de alta: " + e.dimeFecha());
 		}
 				
@@ -91,7 +100,7 @@ class Empleado{
 	// Da igual donde definamos las variables. 
 }
 
-class Jefe extends Empleado{
+final class Jefe extends Empleado{
 	
 	private double incentivo;
 	
